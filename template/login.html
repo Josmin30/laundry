@@ -1,0 +1,38 @@
+{% extends "base.html" %}
+{% block content %}
+
+<!-- contact1 -->
+<section class="w3l-contact-1 py-5" id="contact">
+    <div class="contacts-9 py-lg-5 py-md-4">
+        <div class="container">
+            <div class="contactct-fm map-content-9">
+                <div class="header-title text-center">
+                    <h6 class="title-subhny"><span>Login Here!</span></h6>
+                    <!-- <h3 class="title-w3l mb-2">Let’s Talk About
+                        <span class="span-bold"> Your Project</span>
+                    </h3> -->
+                    <!-- <p class="mb-sm-5 mb-4">Start working with Us that can provide everything you need to generate awareness,
+                        drive traffic,
+                        connect. <br> We guarantee that you’ll be able to have any issue resolved within 24 hours.</p> -->
+                </div>
+                <form  class="pt-lg-4" method="post">
+                    {% csrf_token %}
+                    <div class="twice-two">
+                        <input type="text" class="form-control" name="username" id="w3lSender" placeholder="username" required="">
+                    </div>
+                    <div class="twice-two">
+                        <input type="password" class="form-control" name="password" id="w3lPhone" placeholder="Password" required="">
+                       
+                    </div>
+                    
+                        <button type="submit" class="btn btn-primary btn-style mt-lg-5 mt-4">Login</button>
+                    </div>
+                </form>
+            </div>
+
+{% if messages %}
+{% for msg in messages %}
+<script>alert("{{msg}}");</script>
+{% endfor %}
+{% endif %}
+{% endblock %}

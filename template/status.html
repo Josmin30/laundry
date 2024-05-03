@@ -1,0 +1,37 @@
+<table border="2">
+
+    <tr>
+        <th>Name</th>
+        <th>Email</th>
+        <th>Phone No</th>
+        <th>Adress</th>
+        <th>Location</th>
+        <th>Date</th>
+        <th>Quantity</th>
+        <th>Item Details</th>
+        <th>status</th>
+        <th>progress</th>
+        <th></th>
+        
+    </tr>
+    {% for d in data %}
+    <tr>
+        <td>{{d.name}}</td>
+        <td>{{d.email}}</td>
+        <td>{{d.phone}}</td>
+        <td>{{d.address}}</td>
+        <td>{{d.location}}</td>
+        <td>{{d.date}}</td>
+        <td>{{d.quantity}}</td>
+        <td>{{d.details}}</td>
+        <td>{{d.status}}</td>
+        <td>{{d.progress}}</td>
+        {% if d.status == "Active" %}
+        <td><a href="/active?id={{d.id}}" class="btn btn-success">Ongoing</a></td>
+        {% elif d.status == "OnGoing" %}
+        <td><a href="/complete?id={{d.id}}" class="btn btn-success">Complete</a></td>
+
+        {% endif %}
+        
+    </tr>
+    {% endfor %}
